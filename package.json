@@ -1,0 +1,56 @@
+{
+  "name": "tonapi-langchain-tools",
+  "version": "0.1.0",
+  "description": "OpenAPI-driven TON API tools for the LangChain TypeScript SDK.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "node -e \"import('node:fs/promises').then((fs) => fs.rm('dist', { recursive: true, force: true }))\"",
+    "prebuild": "npm run clean",
+    "test": "node --import tsx --test test/**/*.test.ts",
+    "test:watch": "node --import tsx --test --watch test/**/*.test.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "keywords": [
+    "langchain",
+    "ton",
+    "tonapi",
+    "tools",
+    "agent",
+    "typescript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "dependencies": {
+    "@langchain/core": "^1.1.32",
+    "yaml": "^2.8.2",
+    "zod": "^4.3.6"
+  },
+  "peerDependencies": {
+    "@ton-api/client": "^0.4.0"
+  },
+  "peerDependenciesMeta": {
+    "@ton-api/client": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}
