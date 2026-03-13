@@ -19,6 +19,7 @@
     "clean": "node -e \"import('node:fs/promises').then((fs) => fs.rm('dist', { recursive: true, force: true }))\"",
     "example:agent": "tsx examples/simple-agent.ts",
     "prebuild": "npm run clean",
+    "release": "npm run typecheck && npm test && npm run build && npm publish --access public",
     "test": "node --import tsx --test test/**/*.test.ts",
     "test:watch": "node --import tsx --test --watch test/**/*.test.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit"
@@ -33,6 +34,14 @@
   ],
   "author": "",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baghe/ton-langchain.git"
+  },
+  "bugs": {
+    "url": "https://github.com/baghe/ton-langchain/issues"
+  },
+  "homepage": "https://github.com/baghe/ton-langchain#readme",
   "engines": {
     "node": ">=18.17.0"
   },
