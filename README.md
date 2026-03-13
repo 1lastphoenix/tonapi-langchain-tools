@@ -143,6 +143,28 @@ npm run test
 npm run build
 ```
 
+## Quick Agent Smoke Test (Real LLM)
+
+```bash
+# required
+$env:OPENAI_API_KEY="your-openai-key"
+$env:TONAPI_API_KEY="your-tonapi-key"
+
+# optional
+$env:OPENAI_MODEL="gpt-4o-mini"
+$env:TON_TEST_ADDRESS="0:97264395BD65A255A429B11326C84128B7D70FFED7949ABAE3036D506BA38621"
+
+# run built-in minimal agent example
+npm run example:agent
+
+# custom prompt
+npm run example:agent -- "Get TON API status and parse EQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM9c"
+```
+
+The script uses `createSafeTonApiTools()` with only:
+- `status`
+- `addressParse`
+
 ## Notes
 
 - Default OpenAPI source: `https://tonapi.io/v2/openapi.yml`

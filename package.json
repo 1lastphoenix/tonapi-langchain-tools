@@ -17,6 +17,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "clean": "node -e \"import('node:fs/promises').then((fs) => fs.rm('dist', { recursive: true, force: true }))\"",
+    "example:agent": "tsx examples/simple-agent.ts",
     "prebuild": "npm run clean",
     "test": "node --import tsx --test test/**/*.test.ts",
     "test:watch": "node --import tsx --test --watch test/**/*.test.ts",
@@ -49,7 +50,9 @@
     }
   },
   "devDependencies": {
+    "@langchain/openai": "^1.2.13",
     "@types/node": "^25.5.0",
+    "langchain": "^1.2.32",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   }
